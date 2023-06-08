@@ -6,15 +6,9 @@ from flask import jsonify
 # from flask_cors import CORS, cross_origin
 from SessionMessage import sendSessionMessage
 from downloadImage import downloadImage
-from HindiContent import HindiContent0
-from HindiContent import HindiContent1
-from HindiContent import HindiContent2
-from EnglishContent import EnglishContent0
-from EnglishContent import EnglishContent1
-from EnglishContent import EnglishContent2
-from MarathiContent import MarathiContent0
-from MarathiContent import MarathiContent1
-from MarathiContent import MarathiContent2
+import HindiContent 
+import EnglishContent 
+import MarathiContent 
 from LanguagePreference import languagePreference
 import mongoDB as mdb
 from kcImage import execute
@@ -79,11 +73,11 @@ def functionCall():
         language = mdb.db.kc_upload.find_one({"phoneNumber": 918355882259})["language"]
 
         if(language == 'English'):
-            EnglishContent2(data, audio)
+            EnglishContent.EnglishContent2(data, audio)
         elif(language == 'हिंदी'):
-            HindiContent2(data, audio)
+            HindiContent.HindiContent2(data, audio)
         elif(language == 'मराठी'):  
-            MarathiContent2(data, audio)
+            MarathiContent.MarathiContent2(data, audio)
 
     else:
         if textByUser is None and data['listReply']!=None:
@@ -106,13 +100,13 @@ def functionCall():
 
                 if(language == 'English'):
                     print('Language is English')
-                    EnglishContent0(nextQuestion)
+                    EnglishContent.EnglishContent0(nextQuestion)
                 elif(language == 'हिंदी'):
                     print('Language is हिंदी')
-                    HindiContent0(nextQuestion)
+                    HHindiContent.HindiContent0(nextQuestion)
                 elif(language == 'मराठी'):
                     print('Language is मराठी')   
-                    MarathiContent0(nextQuestion) 
+                    MarathiContent.MarathiContent0(nextQuestion) 
         
             elif(user_response == 'Other' or user_response == 'अन्य' or user_response == 'इतर'):
                 print('User selected Other Option')
@@ -125,13 +119,13 @@ def functionCall():
 
                 if(language == 'English'):
                     print('Language is English')
-                    EnglishContent0(nextQuestion)
+                    EnglishContent.EnglishContent0(nextQuestion)
                 elif(language == 'हिंदी'):
                     print('Language is हिंदी')
-                    HindiContent0(nextQuestion)
+                    HindiContent.HindiContent0(nextQuestion)
                 elif(language == 'मराठी'):
                     print('Language is मराठी')   
-                    MarathiContent0(nextQuestion)
+                    MarathiContent.MarathiContent0(nextQuestion)
 
         else:
 
@@ -185,26 +179,26 @@ def functionCall():
 
                 if(language == 'English'):
                     print('Language is English')
-                    EnglishContent1()
+                    EnglishContent.EnglishContent1()
                 elif(language == 'हिंदी'):
                     print('Language is हिंदी')
-                    HindiContent1()
+                    HindiContent.HindiContent1()
                 elif(language == 'मराठी'):
                     print('Language is मराठी')   
-                    MarathiContent1() 
+                    MarathiContent.MarathiContent1() 
             
             else:
                 language = mdb.db.kc_upload.find_one({"phoneNumber": 918355882259})["language"]
 
                 if(language == 'English'):
                     print('Language is English')
-                    EnglishContent2(data, textByUser)
+                    EnglishContent.EnglishContent2(data, textByUser)
                 elif(language == 'हिंदी'):
                     print('Language is हिंदी')
-                    HindiContent2(data, textByUser)
+                    HindiContent.HindiContent2(data, textByUser)
                 elif(language == 'मराठी'):
                     print('Language is मराठी')
-                    MarathiContent2(data, textByUser)
+                    MarathiContent.MarathiContent2(data, textByUser)
 
     return "ok"    
 
