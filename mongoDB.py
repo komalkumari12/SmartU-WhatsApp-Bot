@@ -6,9 +6,9 @@ from dotenv import dotenv_values
 import os 
 config = dotenv_values(".env")
 
-# MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = os.getenv("MONGO_URI")
 
-MONGO_URI = config["MONGO_URI"]
+# MONGO_URI = config[MONGO_URI]
 
 CONNECTION_STRING = MONGO_URI
 
